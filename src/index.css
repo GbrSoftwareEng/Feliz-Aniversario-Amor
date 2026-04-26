@@ -2,94 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 270 40% 4%;
+    --foreground: 280 100% 88%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 270 40% 6%;
+    --card-foreground: 280 100% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 270 40% 6%;
+    --popover-foreground: 280 100% 88%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 280 100% 70%;
+    --primary-foreground: 270 40% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 270 30% 15%;
+    --secondary-foreground: 280 100% 88%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 270 30% 12%;
+    --muted-foreground: 280 30% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 285 100% 75%;
+    --accent-foreground: 270 40% 4%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 280 50% 25%;
+    --input: 270 30% 15%;
+    --ring: 280 100% 70%;
 
     --radius: 0.5rem;
 
+    /* Roxo brilhante - tema aniversário */
+    --purple-glow: 280 100% 70%;
+    --purple-bright: 285 100% 80%;
+    --purple-deep: 270 80% 40%;
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -101,5 +57,118 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    overflow: hidden;
   }
+}
+
+@layer utilities {
+  .text-glow {
+    color: hsl(var(--purple-bright));
+    text-shadow:
+      0 0 10px hsl(var(--purple-glow) / 0.9),
+      0 0 20px hsl(var(--purple-glow) / 0.7),
+      0 0 40px hsl(var(--purple-glow) / 0.5),
+      0 0 80px hsl(var(--purple-glow) / 0.3);
+  }
+
+  .text-glow-strong {
+    color: hsl(var(--purple-bright));
+    text-shadow:
+      0 0 15px hsl(var(--purple-bright) / 1),
+      0 0 30px hsl(var(--purple-glow) / 0.9),
+      0 0 60px hsl(var(--purple-glow) / 0.6),
+      0 0 100px hsl(var(--purple-glow) / 0.4);
+  }
+
+  .lyrics-mask {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 12%,
+      rgba(0, 0, 0, 1) 35%,
+      rgba(0, 0, 0, 1) 65%,
+      rgba(0, 0, 0, 0.3) 88%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 12%,
+      rgba(0, 0, 0, 1) 35%,
+      rgba(0, 0, 0, 1) 65%,
+      rgba(0, 0, 0, 0.3) 88%,
+      transparent 100%
+    );
+  }
+}
+
+/* Scroll vertical lento - estilo lyrics */
+@keyframes scroll-lyrics {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-lyrics {
+  animation: scroll-lyrics 240s linear infinite;
+}
+
+/* Partículas brilhantes */
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(-30px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Flores caindo */
+@keyframes fall-flower {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(80px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 15px hsl(var(--purple-bright) / 1),
+      0 0 30px hsl(var(--purple-glow) / 0.9),
+      0 0 60px hsl(var(--purple-glow) / 0.6);
+  }
+  50% {
+    text-shadow:
+      0 0 25px hsl(var(--purple-bright) / 1),
+      0 0 50px hsl(var(--purple-glow) / 1),
+      0 0 90px hsl(var(--purple-glow) / 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
