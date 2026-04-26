@@ -4,7 +4,10 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
+// Para GitHub Pages em repositório próprio: usuario.github.io/NOME-DO-REPO
+// Altere VITE_BASE no workflow ou edite a string abaixo com o nome do seu repositório.
 export default defineConfig(({ mode }) => ({
+  base: process.env.VITE_BASE ?? "./",
   server: {
     host: "::",
     port: 8080,
